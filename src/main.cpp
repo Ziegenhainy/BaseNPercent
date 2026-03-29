@@ -39,11 +39,23 @@ std::string turnBaseN(float percent, float n, bool isDecimal) {
 }
 
 class $modify(hookedPlayLayer, PlayLayer) {
+    struct Fields {
+        int m_baseN;
+        bool m_isPlatformer;
+    };
+
+    bool init(GJGameLevel* level, bool useReplay, bool dontCreateObjects) {
+        if (!PlayLayer::init(level, useReplay, dontCreateObjects)) return false;
+        
+        m_fields->m_baseN = Mod::get()->getSettingValue<int64_t>("base-n");
+        m_fields->m_isPlatformer = m_level->isPlatformer();
+
+        return true;
+    }
+
     void updateProgressbar() {
         PlayLayer::updateProgressbar();
-
-        int baseN = Mod::get()->getSettingValue<int64_t>("base-n");
-        if (baseN == 10) return;
-        m_percentageLabel->setString(turnBaseN(this->getCurrentPercent(), baseN, m_decimalPercentage).c_str());
+        if (m_fields->m_baseN == 10 || m_fields->m_isPlatformer) return;
+        m_percentageLabel->setString(turnBaseN(this->getCurrentPercent(),m_fields->m_baseN, m_decimalPercentage).c_str());
     }
 };

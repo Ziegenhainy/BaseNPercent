@@ -1,3 +1,7 @@
+# 1.0.3
+- Fixed Platformer Levels showing Percentage
+- Slight Performance Improvements
+
 # 1.0.2
 - Update mod.json to actually have the correct version
 
