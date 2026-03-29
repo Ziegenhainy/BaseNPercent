@@ -1,3 +1,6 @@
+# 1.0.2
+- Update mod.json to actually have the correct version
+
 # 1.0.1
 - Update mod.json to include Github Source
 
