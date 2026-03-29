@@ -39,12 +39,6 @@ std::string turnBaseN(float percent, float n, bool isDecimal) {
 }
 
 class $modify(hookedPlayLayer, PlayLayer) {
-    // static void onModify(auto& self) {
-    //     if (!self.setHookPriorityAfterPost("PlayLayer::updateProgressbar", "thesillydoggo.qolmod")) {
-    //         log::warn("roman percent failed to set hook priority for PlayLayer::updateProgressbar. qolmod might break roman percent.");
-    //     }
-    // }
-    
     void updateProgressbar() {
         PlayLayer::updateProgressbar();
 

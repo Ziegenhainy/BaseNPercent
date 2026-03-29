@@ -20,6 +20,9 @@
 		"customization",
 		"joke"
 	],
+	"links": {
+		"source":"https://github.com/Ziegenhainy/BaseNPercent"
+	},
 	"settings": {
 		"base-n": {
 			"type": "int",
